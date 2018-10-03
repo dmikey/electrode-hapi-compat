@@ -1,0 +1,5 @@
+inherit: "job://electrode_looper-flows:.looper.yml"
+
+flows:
+  default:
+    - call: electrode_pr

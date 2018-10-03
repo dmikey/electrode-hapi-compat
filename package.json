@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-hapi-yam",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Electrode Hapi 16/17 utilities",
   "main": "index.js",
   "scripts": {

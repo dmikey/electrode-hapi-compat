@@ -6,6 +6,9 @@
   "scripts": {
     "test": "clap check"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git@gecgithub01.walmart.com:electrode/electrode-hapi-yam.git"

@@ -6,7 +6,7 @@ describe("Util", () => {
   let index;
 
   const hapi17Plugin = {
-    register: (server, options) => {},
+    register: () => {},
     pkg: {
       name: "My Sample",
       version: "1.0.0"
@@ -54,5 +54,10 @@ describe("Util", () => {
     const plugin = index.supportHapi16(hapi17Plugin);
     expect(plugin).a("function");
     expect(plugin.attributes.pkg).equal(hapi17Plugin.pkg);
+    let nextCalled = false;
+    plugin({}, {}, () => {
+      nextCalled = true;
+    });
+    expect(nextCalled).true;
   });
 });

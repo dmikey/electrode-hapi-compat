@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-hapi-yam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Electrode Hapi 16/17 utilities",
   "main": "index.js",
   "scripts": {
@@ -19,9 +19,7 @@
   ],
   "author": "Dat Vong <Dat.Vong@walmartlabs.com>",
   "license": "ISC",
-  "dependencies": {
-    "electrode-archetype-njs-module-dev": "^3.0.0"
-  },
+  "dependencies": {},
   "nyc": {
     "all": true,
     "reporter": [
@@ -44,6 +42,8 @@
     "cache": true
   },
   "devDependencies": {
+    "electrode-archetype-njs-module-dev": "^3.0.0",
+    "hapi": "^16.6.3",
     "mock-require": "^3.0.2"
   }
 }

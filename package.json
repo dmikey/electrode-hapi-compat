@@ -1,6 +1,6 @@
 {
   "name": "@walmart/electrode-hapi-compat",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Electrode Hapi 16/17 utilities",
   "main": "index.js",
   "scripts": {

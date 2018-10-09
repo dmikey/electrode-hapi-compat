@@ -49,24 +49,30 @@ describe("Util", () => {
 
   it("test index", () => {
     index = require("../..");
-    expect(index.isHapi17).false;
+    expect(index.isHapi17()).false;
   });
 
   it("test is hapi 17", () => {
     mockRequire("hapi/package", { version: "17.2.2" });
     index = require("../../lib/util");
-    expect(index.isHapi17).true;
+    expect(index.isHapi17()).true;
   });
 
   it("test is not hapi 17", () => {
     index = require("../../lib/util");
-    expect(index.isHapi17).false;
+    expect(index.isHapi17()).false;
+  });
+  it("test allow tests to set flag", () => {
+    index = require("../../lib/util");
+    expect(index.isHapi17()).false;
+    index._testSetHapi17(true);
+    expect(index.isHapi17()).true;
   });
 
   it("test no hapi defaults hapi 16", () => {
     mockRequire("hapi/package", null);
     index = require("../../lib/util");
-    expect(index.isHapi17).false;
+    expect(index.isHapi17()).false;
   });
 
   it("test supportHapi16 handles Hapi17 plugin on Hapi 17", () => {
@@ -89,5 +95,30 @@ describe("Util", () => {
       expect(res.result).eq("ok");
       done();
     });
+  });
+
+  it("test universalHapiPlugin on Hapi 16", () => {
+    index = require("../../lib/util");
+    const registers = {
+      hapi16: () => false,
+      hapi17: () => true
+    };
+    const pkg = { name: "Green" };
+    const plugin = index.universalHapiPlugin(registers, pkg);
+    expect(plugin.attributes.pkg).equal(pkg);
+    expect(plugin).equal(registers.hapi16);
+  });
+
+  it("test universalHapiPlugin on Hapi 17", () => {
+    mockRequire("hapi/package", { version: "17.0.0" });
+    index = require("../../lib/util");
+    const registers = {
+      hapi16: () => false,
+      hapi17: () => true
+    };
+    const pkg = { name: "Yellow" };
+    const plugin = index.universalHapiPlugin(registers, pkg);
+    expect(plugin.pkg).equal(pkg);
+    expect(plugin.register).equal(registers.hapi17);
   });
 });

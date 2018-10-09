@@ -1,5 +1,5 @@
 {
-  "name": "@walmart/electrode-hapi-yam",
+  "name": "@walmart/electrode-hapi-compat",
   "version": "1.0.2",
   "description": "Electrode Hapi 16/17 utilities",
   "main": "index.js",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@gecgithub01.walmart.com:electrode/electrode-hapi-yam.git"
+    "url": "git@gecgithub01.walmart.com:electrode/electrode-hapi-compat.git"
   },
   "keywords": [
     "electrode",
